@@ -13,6 +13,19 @@
 </body>
 
 <script>
+var firebaseConfig = {
+  apiKey: "AIzaSyAIBytPwqVzDlXefFgD4Kxgr264HcIzrEw",
+  authDomain: "htmlfile-779a0.firebaseapp.com",
+  databaseURL: "https://htmlfile-779a0.firebaseio.com",
+  projectId: "htmlfile-779a0",
+  storageBucket: "htmlfile-779a0.appspot.com",
+  messagingSenderId: "849534858575",
+  appId: "1:849534858575:web:a732b28620bbcdb1d6813a",
+  measurementId: "G-1M5GDWSCCS"
+};
+
+
+  firebase.initializeApp(firebaseConfig);
 
     let fileInput = document.getElementById('ip-file');
 
@@ -31,6 +44,12 @@
             let blob = event.target.result;
 
             // Write your code here
+            var fileName=file.name;
+   alert(fileName);
+    var storageRef=firebase.storage().ref('folder/'+fileName);
+ 
+
+    var uploadTask=storageRef.put(file);
 
         });
 
